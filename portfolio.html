@@ -1,0 +1,33 @@
+---
+layout: page
+title: Jekyll Theme - Elements Reference - Massively
+description: Having a massive list of every element of a theme is useful for quick referencing and ideas. Here is every component of Massively!
+sitemap:
+    priority: 0.7
+    lastmod: 2017-11-02
+    changefreq: weekly
+---
+<header class="major">
+	<div class="">
+		<h1>Portfolio</h1>
+	</div>
+</header>
+<!-- Image -->
+	<div class="box alt">
+		<div class="row 75% uniform gallery">
+			{% for image in site.static_files %}
+			    {% if image.path contains 'images/tattoos' %}
+
+					<div class="4u">
+						<a href="{{site.baseurl}}{{image.path}}"">
+							<span class="image fit">
+								<img height="200px" width=200px src="{{site.baseurl}}{{image.path}}" alt="image" />
+							</span>
+						</a>
+					</div>
+				{% endif %}
+			{% endfor %}
+			<!-- Break -->
+		</div>
+	</div>
+

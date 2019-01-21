@@ -1,0 +1,110 @@
+---
+layout: null
+title: Jekyll Theme - Home Page - Massively
+description: Every great website starts with a great homepage. The homepage tells your viewers what your site is all about and gives your viewers a place to come back to.
+sitemap:
+priority: 1.0
+lastmod: 2017-11-02
+changefreq: weekly
+---
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+  Jekyll integration by somiibo.com
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+	{% include head.html %}
+
+
+</head>
+<body class="is-loading">
+
+	<!-- Wrapper -->
+	<div id="wrapper" class="fade-in">
+
+		<!-- Intro -->
+		<div id="intro">
+			<h1>James Roberts Tattoos</h1>
+			<h2></h2>
+			<p></p>
+			<ul class="actions">
+				<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
+			</ul>
+		</div>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="{{ "/" | absolute_url }}" class="logo">{{site.title}}</a>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+
+			{% include nav.html %}
+
+			<ul class="icons">
+				<li><a href="https://twitter.com/{{site.twitter}}" class="icon fa-twitter" rel="nofollow"><span class="label">Twitter</span></a></li>
+				<li><a href="https://facebook.com/{{site.facebook}}" class="icon fa-facebook" rel="nofollow"><span class="label">Facebook</span></a></li>
+				<li><a href="https://instagram.com/{{site.instagram}}" class="icon fa-instagram" rel="nofollow"><span class="label">Instagram</span></a></li>
+				<li><a href="https://github.com/{{site.github}}" class="icon fa-github" rel="nofollow"><span class="label">GitHub</span></a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<!-- Featured Post -->
+		<div id="main">
+			<section class="featured">
+				<article class="featured">
+					<!--
+					<header class="major">
+						<h2><a href="#">James' Site Intro</a></h2>
+						<blockquote>He who fights with monsters might take care lest he thereby become a monster. And if you gaze for long into an abyss, the abyss gazes also into you.
+						</blockquote>
+					</header>-->
+					<p>
+					{% for post in site.posts limit:1 %}
+						{{post.content}}
+					{% endfor %}
+					</p>
+
+				</article>
+			</section>
+			<!-- Post -->
+			{% for post in site.posts %}
+			<section class="PostContainer">
+				
+				{% assign t1 = forloop.index %}
+				{% assign mod3 = forloop.index | modulo: 3 %}
+				<article class="BlogPost">
+					<header>
+						<span class="date">{{ post.date | date_to_string }}</span>
+						<h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
+					</header>
+					<p>
+						{% if post.image %}
+						<span class="image left">
+							<a href="{{ post.url | absolute_url }}" class="image">
+								<img class="PostImage" src="{{ post.image | absolute_url }}" alt="" />
+							</a>
+						</span>
+						{% endif %}
+					{{ post.excerpt }}
+					</p>
+				</article>
+			</section>
+			{% endfor %}
+		</div>
+				{% include foot.html %}
+
+			</div>
+
+			<!-- Scripts -->
+			{% include scripts-main.html %}
+			{% include tracking.html %}
+
+		</body>
+		</html>
