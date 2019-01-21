@@ -1,5 +1,5 @@
 #intro{
-	background: url('/images/background.jpg') no-repeat center center fixed;
+	background: url('{{site.baseurl}}/images/background.jpg') no-repeat center center fixed;
 }
 
 .PostContainer{
